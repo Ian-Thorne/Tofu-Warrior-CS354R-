@@ -4,12 +4,23 @@ Group Members:
 	Will Hudson
 
 Instructions on how to use our game's executable:
-	- The executable can be found inside of finalproject-final-panda/Game
+	- The executable can be found inside of "Game"
 		- It is named "TofuWarrior.x86_64"
 	- The executable MUST be in the same directory as the text file "roundInfo.txt"
 		- That is the text file from which the game parses data to load in the rounds
-		- That text file can be modified, as long as it still obeys the rules laid out in "PandaFinalReport.pdf"
-			- If it doesn't, the game could do some very strange things (or crash)
+		- That text file can be modified, as long as each line is organized as follows:
+			1. A string of the path to the level scene to load in
+			2. 3 integers representing the player's spawn coordinates
+			3. 3 integers representing the sword pickup's spawn coordinates
+			4. 3 integers representing the glider pickup's spawn coordinates
+			5. 1 integer representing the number of enemies to spawn
+			6. 1 integer representing the HP of enemies in this round
+			7. 1 integer representing the attack power of enemies in this round
+			8. 1 integer representing the gold reward for killing enemies in this round
+			9. n 3 integer triplets representing spawn coordinates for the n enemies in this round
+			10. 3 integer triplets are written: x|y|z
+			11. Commas separate each item
+				- If it doesn't, the game could do some very strange things (or crash)
 		- If the executable is not in the same directory as "roundInfo.txt" single player mode won't work!
 
 Instructions on how to build our game:
