@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://bin/menuScreen.gdns" type="Script" id=1]
+[ext_resource path="res://fantasy-782001_1920.jpg" type="Texture" id=2]
+[ext_resource path="res://SinglePlayerLabel.png" type="Texture" id=3]
+[ext_resource path="res://MultiPlayerLabel.png" type="Texture" id=4]
+[ext_resource path="res://CreditsLabel.png" type="Texture" id=5]
+
+[node name="Control" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 25.56, 17.4 )
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 781.063
+margin_top = 2.78952
+margin_right = 1421.06
+margin_bottom = 1210.79
+rect_scale = Vector2( 0.311708, 0.321789 )
+
+[node name="SinglePlayerButton" type="TextureButton" parent="VBoxContainer"]
+margin_right = 640.0
+margin_bottom = 400.0
+action_mode = 0
+texture_normal = ExtResource( 3 )
+
+[node name="MultiplayerButton" type="TextureButton" parent="VBoxContainer"]
+margin_top = 404.0
+margin_right = 640.0
+margin_bottom = 804.0
+texture_normal = ExtResource( 4 )
+
+[node name="CreditButton" type="TextureButton" parent="VBoxContainer"]
+margin_top = 808.0
+margin_right = 640.0
+margin_bottom = 1208.0
+texture_normal = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 949.224
+margin_top = 566.93
+margin_right = 1020.22
+margin_bottom = 597.93
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Godot V3.1
+"

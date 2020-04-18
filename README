@@ -1,0 +1,36 @@
+Panda Group Members:
+	Ian Thorne
+	Edwin Silerio
+	Will Hudson
+
+Instructions on how to use our game's executable:
+	- The executable can be found inside of finalproject-final-panda/Game
+		- It is named "TofuWarrior.x86_64"
+	- The executable MUST be in the same directory as the text file "roundInfo.txt"
+		- That is the text file from which the game parses data to load in the rounds
+		- That text file can be modified, as long as it still obeys the rules laid out in "PandaFinalReport.pdf"
+			- If it doesn't, the game could do some very strange things (or crash)
+		- If the executable is not in the same directory as "roundInfo.txt" single player mode won't work!
+
+Instructions on how to build our game:
+	- Navigate to the "finalproject-final-panda" folder
+	- (Optional) If the Godot bindings haven't been generated for your system:
+		- Navigate to the "godot-cpp" folder
+		- Run scons "platform=[your platform] generate_bindings=yes"
+			- If your OS is Linux or Windows include the flag "bits=64"
+	- Run "scons platform=[your platform]" in the "finalproject-final-panda" folder
+		- This will compile our game
+	- Once compiled, open the project in Godot
+		- Click on scan
+		- Navigate to the "finalproject-final-panda" folder
+		- Select this folder
+	- Then play the main scene
+
+We used assets from:
+	Minecraft (A majority of the weapon, armor, and boot sprites, as well as the gold ingot sprite and the oof sound effect)
+	The Legend of Zelda (The potion sprite)
+	Pokemon (Soothe Bell image)
+	Mario (Coin sound effect)
+	Fortnite (Glider image)
+	Microsoft (Windows XP error sound effect)
+	RWBY, Rush Garcia (Background music, owned by RoosterTeeth, remix by Rush Garcia)

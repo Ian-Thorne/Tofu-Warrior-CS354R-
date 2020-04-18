@@ -1,0 +1,677 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://GameOver.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Environment/TanObstacle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://VictoryScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Environment/GreenObstacle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Waypoint.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Environment/Floor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Environment/RoundTanObstacle.tscn" type="PackedScene" id=7]
+[ext_resource path="res://PauseMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Coin.tscn" type="PackedScene" id=10]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Floor" parent="." instance=ExtResource( 6 )]
+transform = Transform( 30, 0, 0, 0, 1, 0, 0, 0, 30, 0, -1, 0 )
+
+[node name="Spawn Platform" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 8, 0 )
+
+[node name="Sword Platform" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -26, 4, 0 )
+
+[node name="Side1" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 2, -5.19615, 0, 3.4641, 3, -26, 0.782293, 3.55791 )
+
+[node name="Side2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 2, 5.19615, 0, -3.4641, 3, -26, 0.782293, -3.57818 )
+
+[node name="Corner Enemy Platform" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 26, 1, -26 )
+
+[node name="Side1" parent="Corner Enemy Platform" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.5, -1.29904, 0, 0.866025, 0.75, 0, -0.804427, 0.889477 )
+
+[node name="Side2" parent="Corner Enemy Platform" instance=ExtResource( 4 )]
+transform = Transform( -1.62921e-07, -0.866025, 0.75, 0, 0.5, 1.29904, -1, 1.41093e-07, -1.22191e-07, -0.896737, -0.804, 0 )
+
+[node name="CornerFamiliarPlatform" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4, 0, -1.30337e-06, 0, 4, 0, 1.30337e-06, 0, -4, -26, 1, 26 )
+
+[node name="Side1" parent="CornerFamiliarPlatform" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.5, -1.29904, 0, 0.866025, 0.75, 0, -0.804427, 0.889477 )
+
+[node name="Side2" parent="CornerFamiliarPlatform" instance=ExtResource( 4 )]
+transform = Transform( -1.62921e-07, -0.866025, 0.75, 0, 0.5, 1.29904, -1, 1.41093e-07, -1.22191e-07, -0.896737, -0.804, 0 )
+
+[node name="Glider Platform" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 8, 0, 0, 0, 4, -26, 8, -26 )
+
+[node name="StaticBody" parent="." instance=ExtResource( 4 )]
+transform = Transform( 8, 0, 0, 0, 4, 0, 0, 0, 4, -14, 4, -26 )
+
+[node name="Platform1" parent="StaticBody" instance=ExtResource( 2 )]
+transform = Transform( 0.125, 0, 0, 0, 1, 0, 0, 0, 0.25, -0.753637, 1.61668, 0.404959 )
+
+[node name="Platform2" parent="StaticBody" instance=ExtResource( 2 )]
+transform = Transform( 0.125, 0, 0, 0, 1, 0, 0, 0, 0.25, -0.283575, 1.13014, -0.437533 )
+
+[node name="Platform3" parent="StaticBody" instance=ExtResource( 2 )]
+transform = Transform( 0.125, 0, 0, 0, 1, 0, 0, 0, 0.25, 0.0673298, 0.690498, 0.410833 )
+
+[node name="Platform4" parent="StaticBody" instance=ExtResource( 2 )]
+transform = Transform( 0.125, 0, 0, 0, 1, 0, 0, 0, 0.25, 0.445811, 0.328632, 0.080184 )
+
+[node name="Platform5" parent="StaticBody" instance=ExtResource( 2 )]
+transform = Transform( 0.125, 0, 0, 0, 0.75, 0, 0, 0, 0.25, 1.21903, -0.224714, -0.405534 )
+
+[node name="Platform6" parent="StaticBody" instance=ExtResource( 2 )]
+transform = Transform( 0.125, 0, 0, 0, 0.65, 0, 0, 0, 0.25, 1.67818, -0.596669, 0.333999 )
+
+[node name="Platform7" parent="StaticBody" instance=ExtResource( 2 )]
+transform = Transform( 0.125, 0, 0, 0, 0.4, 0, 0, 0, 0.25, 2.22898, -0.742341, -0.246896 )
+
+[node name="Platform8" parent="StaticBody" instance=ExtResource( 2 )]
+transform = Transform( 0.125, 0, 0, 0, 0.4, 0, 0, 0, 0.25, 2.80666, -1.14559, 0.350246 )
+
+[node name="Obstacle1" parent="." instance=ExtResource( 7 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -5, 0, 10 )
+
+[node name="Obstacle2" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 12.5, 0, 17.5 )
+
+[node name="Obstacle3" parent="." instance=ExtResource( 7 )]
+transform = Transform( 2.25, 0, 0, 0, 1.5, 0, 0, 0, 2.25, 15, 0, -10 )
+
+[node name="Obstacle4" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 4.5, 0, 0, 0, 1, 15, 0, -5 )
+
+[node name="Obstacle5" parent="." instance=ExtResource( 7 )]
+transform = Transform( 2.5, 0, 0, 0, 1.25, 0, 0, 0, 2.5, -15, 0, -15 )
+
+[node name="Obstacle6" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 2.75, 0, 0, 0, 1, -7.5, 0, 22.5 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 0.0218173, 0.969059, -0.245864, -0.0856552, 0.24683, 0.965266, 0.996086, 3.73993e-09, 0.0883901, -36.5657, 25.772, 0 )
+shadow_enabled = true
+spot_range = 4096.0
+spot_angle = 51.3
+
+[node name="Control" parent="." instance=ExtResource( 9 )]
+
+[node name="VictoryScreen" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource( 8 )]
+visible = false
+
+[node name="GameOverScreen" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Enemies" type="Spatial" parent="."]
+
+[node name="Coins" type="Spatial" parent="."]
+
+[node name="Coin1" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -20.0291, 15.6667, -24.3802 )
+
+[node name="Coin2" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -16.2686, 13.7206, -27.7501 )
+
+[node name="Coin3" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -13.4614, 11.962, -24.3567 )
+
+[node name="Coin4" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -10.4335, 10.5145, -25.6793 )
+
+[node name="Coin5" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -22.8, 17.2, -22.8 )
+
+[node name="Coin6" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -22.8, 17.2, -29.2 )
+
+[node name="Coin7" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -29.2, 17.2, -22.8 )
+
+[node name="Coin8" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -29.2, 17.2, -29.2 )
+
+[node name="Coin9" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -22.8, 9.2, 3.2 )
+
+[node name="Coin10" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -22.8, 9.2, -3.2 )
+
+[node name="Coin11" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -29.2, 9.2, 3.2 )
+
+[node name="Coin12" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -29.2, 9.2, -3.2 )
+
+[node name="Coin13" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 29.2, 6.03885, -22.8 )
+
+[node name="Coin14" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 29.2, 6.03885, -29.2 )
+
+[node name="Coin15" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 22.8, 6.03885, -22.8 )
+
+[node name="Coin16" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 22.8, 6.03885, -29.2 )
+
+[node name="Coin17" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 3, 1, 3 )
+
+[node name="Coin18" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 3, 1, -3 )
+
+[node name="Coin19" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -3, 1, 3 )
+
+[node name="Coin20" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -3, 1, -3 )
+
+[node name="Coin21" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -5, 2.5, 10 )
+
+[node name="Coin22" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 12.5, 4, 17.5 )
+
+[node name="Coin23" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 15, 2.5, -10 )
+
+[node name="Coin24" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 15, 5.5, -5 )
+
+[node name="Coin25" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -15, 2.5, -15 )
+
+[node name="Coin26" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -7.5, 3.75, 22.5 )
+
+[node name="Coin27" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -30, 6.5, 34 )
+
+[node name="Coin28" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -22, 6.5, 34 )
+
+[node name="Coin29" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -34, 6.5, 30 )
+
+[node name="Coin30" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -34, 6.5, 22 )
+
+[node name="Coin31" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -4.24778, 7.45115, -27.6221 )
+
+[node name="Coin32" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, -0.574568, 5.38332, -24.664 )
+
+[node name="Coin33" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 3.83186, 3.51064, -26.9876 )
+
+[node name="Coin34" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 8.45327, 1.81762, -24.599 )
+
+[node name="Coin35" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 34, 1, 15 )
+
+[node name="Coin36" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 34, 1, 9.17 )
+
+[node name="Coin37" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 34, 1, 3.34 )
+
+[node name="Coin38" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 34, 1, -3.34 )
+
+[node name="Coin39" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 34, 1, -9.17 )
+
+[node name="Coin40" parent="Coins" instance=ExtResource( 10 )]
+transform = Transform( 0.1, 0, 0, 0, -1.31134e-08, -0.25, 0, 0.3, -1.09278e-08, 34, 1, -15 )
+
+[node name="Waypoints" type="Spatial" parent="."]
+
+[node name="Waypoint83" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint1", "/root/Spatial/Waypoints/Waypoint84", "/root/Spatial/Waypoints/Waypoint10" ]
+
+[node name="Waypoint84" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint83", "/root/Spatial/Waypoints/Waypoint10", "/root/Spatial/Waypoints/Waypoint85", "/root/Spatial/Waypoints/Waypoint1", "/root/Spatial/Waypoints/Waypoint19" ]
+
+[node name="Waypoint85" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint84", "/root/Spatial/Waypoints/Waypoint19", "/root/Spatial/Waypoints/Waypoint10" ]
+
+[node name="Waypoint1" parent="Waypoints" groups=[
+"CornerWaypoints",
+] instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint83", "/root/Spatial/Waypoints/Waypoint2", "/root/Spatial/Waypoints/Waypoint10", "/root/Spatial/Waypoints/Waypoint84" ]
+
+[node name="Waypoint2" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint1", "/root/Spatial/Waypoints/Waypoint3", "/root/Spatial/Waypoints/Waypoint10", "/root/Spatial/Waypoints/Waypoint12" ]
+
+[node name="Waypoint3" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint2", "/root/Spatial/Waypoints/Waypoint4", "/root/Spatial/Waypoints/Waypoint12", "/root/Spatial/Waypoints/Waypoint13" ]
+
+[node name="Waypoint4" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint3", "/root/Spatial/Waypoints/Waypoint5", "/root/Spatial/Waypoints/Waypoint13", "/root/Spatial/Waypoints/Waypoint12", "/root/Spatial/Waypoints/Waypoint14" ]
+
+[node name="Waypoint5" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint4", "/root/Spatial/Waypoints/Waypoint6", "/root/Spatial/Waypoints/Waypoint14", "/root/Spatial/Waypoints/Waypoint13", "/root/Spatial/Waypoints/Waypoint15" ]
+
+[node name="Waypoint6" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint5", "/root/Spatial/Waypoints/Waypoint7", "/root/Spatial/Waypoints/Waypoint15", "/root/Spatial/Waypoints/Waypoint14", "/root/Spatial/Waypoints/Waypoint16" ]
+
+[node name="Waypoint7" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint6", "/root/Spatial/Waypoints/Waypoint8", "/root/Spatial/Waypoints/Waypoint16", "/root/Spatial/Waypoints/Waypoint15", "/root/Spatial/Waypoints/Waypoint17" ]
+
+[node name="Waypoint8" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint7", "/root/Spatial/Waypoints/Waypoint9", "/root/Spatial/Waypoints/Waypoint17", "/root/Spatial/Waypoints/Waypoint16", "/root/Spatial/Waypoints/Waypoint18", "/root/Spatial/Waypoints/Waypoint82" ]
+
+[node name="Waypoint82" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -25 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint8" ]
+
+[node name="Waypoint9" parent="Waypoints" groups=[
+"CornerWaypoints",
+] instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint8", "/root/Spatial/Waypoints/Waypoint18", "/root/Spatial/Waypoints/Waypoint17" ]
+
+[node name="Waypoint10" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint84", "/root/Spatial/Waypoints/Waypoint1", "/root/Spatial/Waypoints/Waypoint19", "/root/Spatial/Waypoints/Waypoint83", "/root/Spatial/Waypoints/Waypoint2", "/root/Spatial/Waypoints/Waypoint85", "/root/Spatial/Waypoints/Waypoint20" ]
+
+[node name="Waypoint12" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint3", "/root/Spatial/Waypoints/Waypoint13", "/root/Spatial/Waypoints/Waypoint21", "/root/Spatial/Waypoints/Waypoint2", "/root/Spatial/Waypoints/Waypoint4", "/root/Spatial/Waypoints/Waypoint20", "/root/Spatial/Waypoints/Waypoint22" ]
+
+[node name="Waypoint13" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint12", "/root/Spatial/Waypoints/Waypoint4", "/root/Spatial/Waypoints/Waypoint14", "/root/Spatial/Waypoints/Waypoint22", "/root/Spatial/Waypoints/Waypoint3", "/root/Spatial/Waypoints/Waypoint5", "/root/Spatial/Waypoints/Waypoint21", "/root/Spatial/Waypoints/Waypoint23" ]
+
+[node name="Waypoint14" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint13", "/root/Spatial/Waypoints/Waypoint5", "/root/Spatial/Waypoints/Waypoint15", "/root/Spatial/Waypoints/Waypoint23", "/root/Spatial/Waypoints/Waypoint4", "/root/Spatial/Waypoints/Waypoint6", "/root/Spatial/Waypoints/Waypoint22", "/root/Spatial/Waypoints/Waypoint24" ]
+
+[node name="Waypoint15" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint14", "/root/Spatial/Waypoints/Waypoint6", "/root/Spatial/Waypoints/Waypoint16", "/root/Spatial/Waypoints/Waypoint24", "/root/Spatial/Waypoints/Waypoint5", "/root/Spatial/Waypoints/Waypoint7", "/root/Spatial/Waypoints/Waypoint23", "/root/Spatial/Waypoints/Waypoint25" ]
+
+[node name="Waypoint16" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint15", "/root/Spatial/Waypoints/Waypoint7", "/root/Spatial/Waypoints/Waypoint17", "/root/Spatial/Waypoints/Waypoint25", "/root/Spatial/Waypoints/Waypoint6", "/root/Spatial/Waypoints/Waypoint8", "/root/Spatial/Waypoints/Waypoint24" ]
+
+[node name="Waypoint17" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint16", "/root/Spatial/Waypoints/Waypoint8", "/root/Spatial/Waypoints/Waypoint18", "/root/Spatial/Waypoints/Waypoint7", "/root/Spatial/Waypoints/Waypoint9", "/root/Spatial/Waypoints/Waypoint25", "/root/Spatial/Waypoints/Waypoint27" ]
+
+[node name="Waypoint18" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint17", "/root/Spatial/Waypoints/Waypoint9", "/root/Spatial/Waypoints/Waypoint27", "/root/Spatial/Waypoints/Waypoint88", "/root/Spatial/Waypoints/Waypoint8", "/root/Spatial/Waypoints/Waypoint89" ]
+
+[node name="Waypoint88" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint18", "/root/Spatial/Waypoints/Waypoint89", "/root/Spatial/Waypoints/Waypoint27" ]
+
+[node name="Waypoint89" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint27", "/root/Spatial/Waypoints/Waypoint88", "/root/Spatial/Waypoints/Waypoint90", "/root/Spatial/Waypoints/Waypoint18", "/root/Spatial/Waypoints/Waypoint36" ]
+
+[node name="Waypoint90" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint36", "/root/Spatial/Waypoints/Waypoint89", "/root/Spatial/Waypoints/Waypoint91", "/root/Spatial/Waypoints/Waypoint27", "/root/Spatial/Waypoints/Waypoint45" ]
+
+[node name="Waypoint91" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint45", "/root/Spatial/Waypoints/Waypoint90", "/root/Spatial/Waypoints/Waypoint92", "/root/Spatial/Waypoints/Waypoint36", "/root/Spatial/Waypoints/Waypoint54" ]
+
+[node name="Waypoint92" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint54", "/root/Spatial/Waypoints/Waypoint91", "/root/Spatial/Waypoints/Waypoint93", "/root/Spatial/Waypoints/Waypoint45", "/root/Spatial/Waypoints/Waypoint63" ]
+
+[node name="Waypoint93" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint63", "/root/Spatial/Waypoints/Waypoint92", "/root/Spatial/Waypoints/Waypoint94", "/root/Spatial/Waypoints/Waypoint54", "/root/Spatial/Waypoints/Waypoint72" ]
+
+[node name="Waypoint94" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint72", "/root/Spatial/Waypoints/Waypoint93", "/root/Spatial/Waypoints/Waypoint95", "/root/Spatial/Waypoints/Waypoint63", "/root/Spatial/Waypoints/Waypoint81" ]
+
+[node name="Waypoint95" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint81", "/root/Spatial/Waypoints/Waypoint94", "/root/Spatial/Waypoints/Waypoint96", "/root/Spatial/Waypoints/Waypoint72", "/root/Spatial/Waypoints/Waypoint104" ]
+
+[node name="Waypoint96" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 25 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint104", "/root/Spatial/Waypoints/Waypoint95", "/root/Spatial/Waypoints/Waypoint81" ]
+
+[node name="Waypoint19" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint85", "/root/Spatial/Waypoints/Waypoint10", "/root/Spatial/Waypoints/Waypoint20", "/root/Spatial/Waypoints/Waypoint28", "/root/Spatial/Waypoints/Waypoint84", "/root/Spatial/Waypoints/Waypoint29" ]
+
+[node name="Waypoint20" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint19", "/root/Spatial/Waypoints/Waypoint21", "/root/Spatial/Waypoints/Waypoint29", "/root/Spatial/Waypoints/Waypoint10", "/root/Spatial/Waypoints/Waypoint12", "/root/Spatial/Waypoints/Waypoint28", "/root/Spatial/Waypoints/Waypoint30" ]
+
+[node name="Waypoint21" parent="Waypoints" groups=[
+"CornerWaypoints",
+] instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint20", "/root/Spatial/Waypoints/Waypoint12", "/root/Spatial/Waypoints/Waypoint22", "/root/Spatial/Waypoints/Waypoint30", "/root/Spatial/Waypoints/Waypoint13", "/root/Spatial/Waypoints/Waypoint29", "/root/Spatial/Waypoints/Waypoint31" ]
+
+[node name="Waypoint22" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint21", "/root/Spatial/Waypoints/Waypoint13", "/root/Spatial/Waypoints/Waypoint23", "/root/Spatial/Waypoints/Waypoint31", "/root/Spatial/Waypoints/Waypoint12", "/root/Spatial/Waypoints/Waypoint14", "/root/Spatial/Waypoints/Waypoint30", "/root/Spatial/Waypoints/Waypoint32" ]
+
+[node name="Waypoint23" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint22", "/root/Spatial/Waypoints/Waypoint14", "/root/Spatial/Waypoints/Waypoint15", "/root/Spatial/Waypoints/Waypoint32", "/root/Spatial/Waypoints/Waypoint13", "/root/Spatial/Waypoints/Waypoint15", "/root/Spatial/Waypoints/Waypoint31", "/root/Spatial/Waypoints/Waypoint33" ]
+
+[node name="Waypoint24" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint23", "/root/Spatial/Waypoints/Waypoint15", "/root/Spatial/Waypoints/Waypoint25", "/root/Spatial/Waypoints/Waypoint33", "/root/Spatial/Waypoints/Waypoint14", "/root/Spatial/Waypoints/Waypoint16", "/root/Spatial/Waypoints/Waypoint32", "/root/Spatial/Waypoints/Waypoint34" ]
+
+[node name="Waypoint25" parent="Waypoints" groups=[
+"CornerWaypoints",
+] instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint24", "/root/Spatial/Waypoints/Waypoint16", "/root/Spatial/Waypoints/Waypoint34", "/root/Spatial/Waypoints/Waypoint15", "/root/Spatial/Waypoints/Waypoint17", "/root/Spatial/Waypoints/Waypoint33" ]
+
+[node name="Waypoint27" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint18", "/root/Spatial/Waypoints/Waypoint89", "/root/Spatial/Waypoints/Waypoint36", "/root/Spatial/Waypoints/Waypoint17", "/root/Spatial/Waypoints/Waypoint88", "/root/Spatial/Waypoints/Waypoint90" ]
+
+[node name="Waypoint28" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint19", "/root/Spatial/Waypoints/Waypoint29", "/root/Spatial/Waypoints/Waypoint37", "/root/Spatial/Waypoints/Waypoint20", "/root/Spatial/Waypoints/Waypoint38" ]
+
+[node name="Waypoint29" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint28", "/root/Spatial/Waypoints/Waypoint20", "/root/Spatial/Waypoints/Waypoint30", "/root/Spatial/Waypoints/Waypoint38", "/root/Spatial/Waypoints/Waypoint19", "/root/Spatial/Waypoints/Waypoint21", "/root/Spatial/Waypoints/Waypoint37", "/root/Spatial/Waypoints/Waypoint39" ]
+
+[node name="Waypoint30" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint29", "/root/Spatial/Waypoints/Waypoint21", "/root/Spatial/Waypoints/Waypoint31", "/root/Spatial/Waypoints/Waypoint39", "/root/Spatial/Waypoints/Waypoint20", "/root/Spatial/Waypoints/Waypoint22", "/root/Spatial/Waypoints/Waypoint38", "/root/Spatial/Waypoints/Waypoint40" ]
+
+[node name="Waypoint31" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint30", "/root/Spatial/Waypoints/Waypoint22", "/root/Spatial/Waypoints/Waypoint32", "/root/Spatial/Waypoints/Waypoint40", "/root/Spatial/Waypoints/Waypoint21", "/root/Spatial/Waypoints/Waypoint23", "/root/Spatial/Waypoints/Waypoint39", "/root/Spatial/Waypoints/Waypoint41" ]
+
+[node name="Waypoint32" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint31", "/root/Spatial/Waypoints/Waypoint23", "/root/Spatial/Waypoints/Waypoint33", "/root/Spatial/Waypoints/Waypoint41", "/root/Spatial/Waypoints/Waypoint22", "/root/Spatial/Waypoints/Waypoint24", "/root/Spatial/Waypoints/Waypoint40", "/root/Spatial/Waypoints/Waypoint42" ]
+
+[node name="Waypoint33" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint32", "/root/Spatial/Waypoints/Waypoint24", "/root/Spatial/Waypoints/Waypoint34", "/root/Spatial/Waypoints/Waypoint42", "/root/Spatial/Waypoints/Waypoint23", "/root/Spatial/Waypoints/Waypoint25", "/root/Spatial/Waypoints/Waypoint41", "/root/Spatial/Waypoints/Waypoint43" ]
+
+[node name="Waypoint34" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint33", "/root/Spatial/Waypoints/Waypoint25", "/root/Spatial/Waypoints/Waypoint43", "/root/Spatial/Waypoints/Waypoint24", "/root/Spatial/Waypoints/Waypoint42", "/root/Spatial/Waypoints/Waypoint44" ]
+
+[node name="Waypoint36" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint27", "/root/Spatial/Waypoints/Waypoint90", "/root/Spatial/Waypoints/Waypoint45", "/root/Spatial/Waypoints/Waypoint89", "/root/Spatial/Waypoints/Waypoint44", "/root/Spatial/Waypoints/Waypoint91" ]
+
+[node name="Waypoint37" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint28", "/root/Spatial/Waypoints/Waypoint38", "/root/Spatial/Waypoints/Waypoint46", "/root/Spatial/Waypoints/Waypoint29", "/root/Spatial/Waypoints/Waypoint47" ]
+
+[node name="Waypoint38" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint37", "/root/Spatial/Waypoints/Waypoint29", "/root/Spatial/Waypoints/Waypoint39", "/root/Spatial/Waypoints/Waypoint47", "/root/Spatial/Waypoints/Waypoint28", "/root/Spatial/Waypoints/Waypoint30", "/root/Spatial/Waypoints/Waypoint46", "/root/Spatial/Waypoints/Waypoint48" ]
+
+[node name="Waypoint39" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint38", "/root/Spatial/Waypoints/Waypoint30", "/root/Spatial/Waypoints/Waypoint40", "/root/Spatial/Waypoints/Waypoint48", "/root/Spatial/Waypoints/Waypoint29", "/root/Spatial/Waypoints/Waypoint31", "/root/Spatial/Waypoints/Waypoint47", "/root/Spatial/Waypoints/Waypoint49" ]
+
+[node name="Waypoint40" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint39", "/root/Spatial/Waypoints/Waypoint31", "/root/Spatial/Waypoints/Waypoint41", "/root/Spatial/Waypoints/Waypoint49", "/root/Spatial/Waypoints/Waypoint30", "/root/Spatial/Waypoints/Waypoint32", "/root/Spatial/Waypoints/Waypoint48", "/root/Spatial/Waypoints/Waypoint50" ]
+
+[node name="Waypoint41" parent="Waypoints" instance=ExtResource( 5 )]
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint40", "/root/Spatial/Waypoints/Waypoint32", "/root/Spatial/Waypoints/Waypoint41", "/root/Spatial/Waypoints/Waypoint50", "/root/Spatial/Waypoints/Waypoint31", "/root/Spatial/Waypoints/Waypoint33", "/root/Spatial/Waypoints/Waypoint49", "/root/Spatial/Waypoints/Waypoint51" ]
+
+[node name="Waypoint42" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint41", "/root/Spatial/Waypoints/Waypoint33", "/root/Spatial/Waypoints/Waypoint43", "/root/Spatial/Waypoints/Waypoint51", "/root/Spatial/Waypoints/Waypoint32", "/root/Spatial/Waypoints/Waypoint34", "/root/Spatial/Waypoints/Waypoint50", "/root/Spatial/Waypoints/Waypoint52" ]
+
+[node name="Waypoint43" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint42", "/root/Spatial/Waypoints/Waypoint34", "/root/Spatial/Waypoints/Waypoint44", "/root/Spatial/Waypoints/Waypoint52", "/root/Spatial/Waypoints/Waypoint33", "/root/Spatial/Waypoints/Waypoint51", "/root/Spatial/Waypoints/Waypoint53" ]
+
+[node name="Waypoint44" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint43", "/root/Spatial/Waypoints/Waypoint45", "/root/Spatial/Waypoints/Waypoint53", "/root/Spatial/Waypoints/Waypoint34", "/root/Spatial/Waypoints/Waypoint36", "/root/Spatial/Waypoints/Waypoint52", "/root/Spatial/Waypoints/Waypoint54" ]
+
+[node name="Waypoint45" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint44", "/root/Spatial/Waypoints/Waypoint36", "/root/Spatial/Waypoints/Waypoint91", "/root/Spatial/Waypoints/Waypoint54", "/root/Spatial/Waypoints/Waypoint90", "/root/Spatial/Waypoints/Waypoint53", "/root/Spatial/Waypoints/Waypoint92" ]
+
+[node name="Waypoint46" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint37", "/root/Spatial/Waypoints/Waypoint47", "/root/Spatial/Waypoints/Waypoint55", "/root/Spatial/Waypoints/Waypoint38", "/root/Spatial/Waypoints/Waypoint56" ]
+
+[node name="Waypoint47" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint46", "/root/Spatial/Waypoints/Waypoint38", "/root/Spatial/Waypoints/Waypoint48", "/root/Spatial/Waypoints/Waypoint56", "/root/Spatial/Waypoints/Waypoint37", "/root/Spatial/Waypoints/Waypoint39", "/root/Spatial/Waypoints/Waypoint55", "/root/Spatial/Waypoints/Waypoint57" ]
+
+[node name="Waypoint48" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint47", "/root/Spatial/Waypoints/Waypoint39", "/root/Spatial/Waypoints/Waypoint49", "/root/Spatial/Waypoints/Waypoint57", "/root/Spatial/Waypoints/Waypoint38", "/root/Spatial/Waypoints/Waypoint40", "/root/Spatial/Waypoints/Waypoint56" ]
+
+[node name="Waypoint49" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint48", "/root/Spatial/Waypoints/Waypoint40", "/root/Spatial/Waypoints/Waypoint50", "/root/Spatial/Waypoints/Waypoint39", "/root/Spatial/Waypoints/Waypoint41", "/root/Spatial/Waypoints/Waypoint57", "/root/Spatial/Waypoints/Waypoint59" ]
+
+[node name="Waypoint50" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint49", "/root/Spatial/Waypoints/Waypoint41", "/root/Spatial/Waypoints/Waypoint51", "/root/Spatial/Waypoints/Waypoint59", "/root/Spatial/Waypoints/Waypoint40", "/root/Spatial/Waypoints/Waypoint42", "/root/Spatial/Waypoints/Waypoint60" ]
+
+[node name="Waypoint51" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint50", "/root/Spatial/Waypoints/Waypoint42", "/root/Spatial/Waypoints/Waypoint52", "/root/Spatial/Waypoints/Waypoint60", "/root/Spatial/Waypoints/Waypoint41", "/root/Spatial/Waypoints/Waypoint43", "/root/Spatial/Waypoints/Waypoint59", "/root/Spatial/Waypoints/Waypoint61" ]
+
+[node name="Waypoint52" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint51", "/root/Spatial/Waypoints/Waypoint43", "/root/Spatial/Waypoints/Waypoint53", "/root/Spatial/Waypoints/Waypoint61", "/root/Spatial/Waypoints/Waypoint42", "/root/Spatial/Waypoints/Waypoint44", "/root/Spatial/Waypoints/Waypoint60", "/root/Spatial/Waypoints/Waypoint62" ]
+
+[node name="Waypoint53" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint52", "/root/Spatial/Waypoints/Waypoint44", "/root/Spatial/Waypoints/Waypoint54", "/root/Spatial/Waypoints/Waypoint62", "/root/Spatial/Waypoints/Waypoint43", "/root/Spatial/Waypoints/Waypoint45", "/root/Spatial/Waypoints/Waypoint61", "/root/Spatial/Waypoints/Waypoint63" ]
+
+[node name="Waypoint54" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 5 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint53", "/root/Spatial/Waypoints/Waypoint45", "/root/Spatial/Waypoints/Waypoint92", "/root/Spatial/Waypoints/Waypoint63", "/root/Spatial/Waypoints/Waypoint44", "/root/Spatial/Waypoints/Waypoint91", "/root/Spatial/Waypoints/Waypoint62", "/root/Spatial/Waypoints/Waypoint93" ]
+
+[node name="Waypoint55" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint86", "/root/Spatial/Waypoints/Waypoint46", "/root/Spatial/Waypoints/Waypoint56", "/root/Spatial/Waypoints/Waypoint64", "/root/Spatial/Waypoints/Waypoint47", "/root/Spatial/Waypoints/Waypoint87", "/root/Spatial/Waypoints/Waypoint65" ]
+
+[node name="Waypoint86" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint55", "/root/Spatial/Waypoints/Waypoint87", "/root/Spatial/Waypoints/Waypoint64" ]
+
+[node name="Waypoint87" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint86", "/root/Spatial/Waypoints/Waypoint64", "/root/Spatial/Waypoints/Waypoint55" ]
+
+[node name="Waypoint56" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint55", "/root/Spatial/Waypoints/Waypoint47", "/root/Spatial/Waypoints/Waypoint57", "/root/Spatial/Waypoints/Waypoint65", "/root/Spatial/Waypoints/Waypoint46", "/root/Spatial/Waypoints/Waypoint48", "/root/Spatial/Waypoints/Waypoint64", "/root/Spatial/Waypoints/Waypoint66" ]
+
+[node name="Waypoint57" parent="Waypoints" groups=[
+"CornerWaypoints",
+] instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint56", "/root/Spatial/Waypoints/Waypoint48", "/root/Spatial/Waypoints/Waypoint66", "/root/Spatial/Waypoints/Waypoint47", "/root/Spatial/Waypoints/Waypoint49", "/root/Spatial/Waypoints/Waypoint65", "/root/Spatial/Waypoints/Waypoint67" ]
+
+[node name="Waypoint59" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint50", "/root/Spatial/Waypoints/Waypoint60", "/root/Spatial/Waypoints/Waypoint68", "/root/Spatial/Waypoints/Waypoint49", "/root/Spatial/Waypoints/Waypoint51", "/root/Spatial/Waypoints/Waypoint67", "/root/Spatial/Waypoints/Waypoint69" ]
+
+[node name="Waypoint60" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint59", "/root/Spatial/Waypoints/Waypoint51", "/root/Spatial/Waypoints/Waypoint61", "/root/Spatial/Waypoints/Waypoint69", "/root/Spatial/Waypoints/Waypoint50", "/root/Spatial/Waypoints/Waypoint52", "/root/Spatial/Waypoints/Waypoint68", "/root/Spatial/Waypoints/Waypoint70" ]
+
+[node name="Waypoint61" parent="Waypoints" groups=[
+"CornerWaypoints",
+] instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint60", "/root/Spatial/Waypoints/Waypoint52", "/root/Spatial/Waypoints/Waypoint62", "/root/Spatial/Waypoints/Waypoint70", "/root/Spatial/Waypoints/Waypoint51", "/root/Spatial/Waypoints/Waypoint53", "/root/Spatial/Waypoints/Waypoint69", "/root/Spatial/Waypoints/Waypoint71" ]
+
+[node name="Waypoint62" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint61", "/root/Spatial/Waypoints/Waypoint53", "/root/Spatial/Waypoints/Waypoint63", "/root/Spatial/Waypoints/Waypoint71", "/root/Spatial/Waypoints/Waypoint52", "/root/Spatial/Waypoints/Waypoint54", "/root/Spatial/Waypoints/Waypoint70", "/root/Spatial/Waypoints/Waypoint72" ]
+
+[node name="Waypoint63" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 10 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint62", "/root/Spatial/Waypoints/Waypoint54", "/root/Spatial/Waypoints/Waypoint93", "/root/Spatial/Waypoints/Waypoint72", "/root/Spatial/Waypoints/Waypoint53", "/root/Spatial/Waypoints/Waypoint92", "/root/Spatial/Waypoints/Waypoint71", "/root/Spatial/Waypoints/Waypoint94" ]
+
+[node name="Waypoint64" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint87", "/root/Spatial/Waypoints/Waypoint55", "/root/Spatial/Waypoints/Waypoint65", "/root/Spatial/Waypoints/Waypoint73", "/root/Spatial/Waypoints/Waypoint86", "/root/Spatial/Waypoints/Waypoint56", "/root/Spatial/Waypoints/Waypoint74" ]
+
+[node name="Waypoint65" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint64", "/root/Spatial/Waypoints/Waypoint56", "/root/Spatial/Waypoints/Waypoint66", "/root/Spatial/Waypoints/Waypoint74", "/root/Spatial/Waypoints/Waypoint55", "/root/Spatial/Waypoints/Waypoint57", "/root/Spatial/Waypoints/Waypoint73", "/root/Spatial/Waypoints/Waypoint75" ]
+
+[node name="Waypoint66" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint65", "/root/Spatial/Waypoints/Waypoint57", "/root/Spatial/Waypoints/Waypoint67", "/root/Spatial/Waypoints/Waypoint75", "/root/Spatial/Waypoints/Waypoint56", "/root/Spatial/Waypoints/Waypoint74", "/root/Spatial/Waypoints/Waypoint76" ]
+
+[node name="Waypoint67" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint66", "/root/Spatial/Waypoints/Waypoint68", "/root/Spatial/Waypoints/Waypoint76", "/root/Spatial/Waypoints/Waypoint57", "/root/Spatial/Waypoints/Waypoint59", "/root/Spatial/Waypoints/Waypoint75", "/root/Spatial/Waypoints/Waypoint77" ]
+
+[node name="Waypoint68" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint67", "/root/Spatial/Waypoints/Waypoint59", "/root/Spatial/Waypoints/Waypoint69", "/root/Spatial/Waypoints/Waypoint77", "/root/Spatial/Waypoints/Waypoint60", "/root/Spatial/Waypoints/Waypoint76", "/root/Spatial/Waypoints/Waypoint78" ]
+
+[node name="Waypoint69" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint68", "/root/Spatial/Waypoints/Waypoint60", "/root/Spatial/Waypoints/Waypoint70", "/root/Spatial/Waypoints/Waypoint78", "/root/Spatial/Waypoints/Waypoint59", "/root/Spatial/Waypoints/Waypoint61", "/root/Spatial/Waypoints/Waypoint77", "/root/Spatial/Waypoints/Waypoint79" ]
+
+[node name="Waypoint70" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint69", "/root/Spatial/Waypoints/Waypoint61", "/root/Spatial/Waypoints/Waypoint71", "/root/Spatial/Waypoints/Waypoint79", "/root/Spatial/Waypoints/Waypoint60", "/root/Spatial/Waypoints/Waypoint62", "/root/Spatial/Waypoints/Waypoint78" ]
+
+[node name="Waypoint71" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint70", "/root/Spatial/Waypoints/Waypoint62", "/root/Spatial/Waypoints/Waypoint72", "/root/Spatial/Waypoints/Waypoint80", "/root/Spatial/Waypoints/Waypoint61", "/root/Spatial/Waypoints/Waypoint63", "/root/Spatial/Waypoints/Waypoint81" ]
+
+[node name="Waypoint72" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 15 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint71", "/root/Spatial/Waypoints/Waypoint63", "/root/Spatial/Waypoints/Waypoint94", "/root/Spatial/Waypoints/Waypoint81", "/root/Spatial/Waypoints/Waypoint62", "/root/Spatial/Waypoints/Waypoint93", "/root/Spatial/Waypoints/Waypoint80", "/root/Spatial/Waypoints/Waypoint95" ]
+
+[node name="Waypoint73" parent="Waypoints" groups=[
+"CornerWaypoints",
+] instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint64", "/root/Spatial/Waypoints/Waypoint74", "/root/Spatial/Waypoints/Waypoint65" ]
+
+[node name="Waypoint74" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint73", "/root/Spatial/Waypoints/Waypoint65", "/root/Spatial/Waypoints/Waypoint75", "/root/Spatial/Waypoints/Waypoint97", "/root/Spatial/Waypoints/Waypoint64", "/root/Spatial/Waypoints/Waypoint66", "/root/Spatial/Waypoints/Waypoint98" ]
+
+[node name="Waypoint97" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 25 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint74", "/root/Spatial/Waypoints/Waypoint75", "/root/Spatial/Waypoints/Waypoint98" ]
+
+[node name="Waypoint98" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 25 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint97", "/root/Spatial/Waypoints/Waypoint75", "/root/Spatial/Waypoints/Waypoint99", "/root/Spatial/Waypoints/Waypoint74" ]
+
+[node name="Waypoint99" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 25 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint98", "/root/Spatial/Waypoints/Waypoint76", "/root/Spatial/Waypoints/Waypoint100", "/root/Spatial/Waypoints/Waypoint77" ]
+
+[node name="Waypoint100" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint99", "/root/Spatial/Waypoints/Waypoint77", "/root/Spatial/Waypoints/Waypoint101", "/root/Spatial/Waypoints/Waypoint76", "/root/Spatial/Waypoints/Waypoint78" ]
+
+[node name="Waypoint101" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 25 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint100", "/root/Spatial/Waypoints/Waypoint78", "/root/Spatial/Waypoints/Waypoint102", "/root/Spatial/Waypoints/Waypoint77", "/root/Spatial/Waypoints/Waypoint79" ]
+
+[node name="Waypoint102" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 25 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint101", "/root/Spatial/Waypoints/Waypoint79", "/root/Spatial/Waypoints/Waypoint103", "/root/Spatial/Waypoints/Waypoint78", "/root/Spatial/Waypoints/Waypoint80" ]
+
+[node name="Waypoint103" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint102", "/root/Spatial/Waypoints/Waypoint80", "/root/Spatial/Waypoints/Waypoint104", "/root/Spatial/Waypoints/Waypoint79", "/root/Spatial/Waypoints/Waypoint81" ]
+
+[node name="Waypoint104" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 25 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint103", "/root/Spatial/Waypoints/Waypoint81", "/root/Spatial/Waypoints/Waypoint96", "/root/Spatial/Waypoints/Waypoint80", "/root/Spatial/Waypoints/Waypoint95" ]
+
+[node name="Waypoint75" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint74", "/root/Spatial/Waypoints/Waypoint66", "/root/Spatial/Waypoints/Waypoint76", "/root/Spatial/Waypoints/Waypoint98", "/root/Spatial/Waypoints/Waypoint65", "/root/Spatial/Waypoints/Waypoint67", "/root/Spatial/Waypoints/Waypoint97" ]
+
+[node name="Waypoint76" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint75", "/root/Spatial/Waypoints/Waypoint67", "/root/Spatial/Waypoints/Waypoint77", "/root/Spatial/Waypoints/Waypoint99", "/root/Spatial/Waypoints/Waypoint66", "/root/Spatial/Waypoints/Waypoint68", "/root/Spatial/Waypoints/Waypoint100" ]
+
+[node name="Waypoint77" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint76", "/root/Spatial/Waypoints/Waypoint68", "/root/Spatial/Waypoints/Waypoint78", "/root/Spatial/Waypoints/Waypoint100", "/root/Spatial/Waypoints/Waypoint67", "/root/Spatial/Waypoints/Waypoint69", "/root/Spatial/Waypoints/Waypoint99", "/root/Spatial/Waypoints/Waypoint101" ]
+
+[node name="Waypoint78" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint77", "/root/Spatial/Waypoints/Waypoint69", "/root/Spatial/Waypoints/Waypoint79", "/root/Spatial/Waypoints/Waypoint101", "/root/Spatial/Waypoints/Waypoint68", "/root/Spatial/Waypoints/Waypoint70", "/root/Spatial/Waypoints/Waypoint100", "/root/Spatial/Waypoints/Waypoint102" ]
+
+[node name="Waypoint79" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint78", "/root/Spatial/Waypoints/Waypoint70", "/root/Spatial/Waypoints/Waypoint80", "/root/Spatial/Waypoints/Waypoint102", "/root/Spatial/Waypoints/Waypoint69", "/root/Spatial/Waypoints/Waypoint101", "/root/Spatial/Waypoints/Waypoint103" ]
+
+[node name="Waypoint80" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint79", "/root/Spatial/Waypoints/Waypoint71", "/root/Spatial/Waypoints/Waypoint81", "/root/Spatial/Waypoints/Waypoint103", "/root/Spatial/Waypoints/Waypoint72", "/root/Spatial/Waypoints/Waypoint102", "/root/Spatial/Waypoints/Waypoint104" ]
+
+[node name="Waypoint81" parent="Waypoints" groups=[
+"CornerWaypoints",
+] instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 20 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint80", "/root/Spatial/Waypoints/Waypoint72", "/root/Spatial/Waypoints/Waypoint95", "/root/Spatial/Waypoints/Waypoint104", "/root/Spatial/Waypoints/Waypoint71", "/root/Spatial/Waypoints/Waypoint94", "/root/Spatial/Waypoints/Waypoint103", "/root/Spatial/Waypoints/Waypoint96" ]
+
+[node name="Waypoint105" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 5.25, 24 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint106", "/root/Spatial/Waypoints/Waypoint87" ]
+
+[node name="Waypoint106" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 5.25, 28 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint105", "/root/Spatial/Waypoints/Waypoint97" ]
+
+[node name="Waypoint107" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -26 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint110" ]
+
+[node name="Waypoint108" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -28 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint107" ]
+
+[node name="Waypoint109" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -25 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint110" ]
+
+[node name="Waypoint110" parent="Waypoints" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -23 )
+connectedWaypoints = [ "/root/Spatial/Waypoints/Waypoint6" ]

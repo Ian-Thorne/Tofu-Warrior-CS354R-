@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/WINDOWS XP ERROR SOUNDwmv.wav-f392bf8ae9ffc33616daccce9fde8239.sample"
+
+[deps]
+
+source_file="res://res/WINDOWS XP ERROR SOUNDwmv.wav"
+dest_files=[ "res://.import/WINDOWS XP ERROR SOUNDwmv.wav-f392bf8ae9ffc33616daccce9fde8239.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

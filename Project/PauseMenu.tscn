@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://bin/PauseMenu.gdns" type="Script" id=1]
+[ext_resource path="res://res/Comfortaa-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://StatsContainer.tscn" type="PackedScene" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 37
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 26
+font_data = ExtResource( 2 )
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -1.67017
+margin_right = 1022.33
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.286275, 0.0117647, 0.0117647, 1 )
+
+[node name="Title" type="Label" parent="Background"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -138.0
+margin_top = 75.0
+margin_right = 138.0
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 1 )
+text = "Game Paused!"
+align = 1
+
+[node name="StatsContainer" parent="Background" instance=ExtResource( 3 )]
+
+[node name="KeysHContainer" type="HBoxContainer" parent="Background"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = -117.0
+margin_right = 418.0
+margin_bottom = -30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Keys" type="Label" parent="Background/KeysHContainer"]
+margin_top = 12.0
+margin_right = 74.0
+margin_bottom = 75.0
+custom_fonts/font = SubResource( 2 )
+text = "Esc - 
+Q -"
+align = 2
+
+[node name="Descriptions" type="Label" parent="Background/KeysHContainer"]
+margin_left = 78.0
+margin_top = 12.0
+margin_right = 297.0
+margin_bottom = 75.0
+custom_fonts/font = SubResource( 3 )
+text = " Return to game
+ Quit game"

@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://bin/AIEnemy.gdns" type="Script" id=1]
+
+[sub_resource type="SphereShape" id=1]
+
+[sub_resource type="SphereMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.266667, 0.419608, 0.94902, 1 )
+
+[sub_resource type="CylinderMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+
+[sub_resource type="CylinderShape" id=6]
+
+[node name="AIEnemy" type="KinematicBody"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="AIEnemy" type="Area" parent="."]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="AIEnemy"]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="ForceField" type="Area" parent="."]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ForceField"]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="Sword1" type="MeshInstance" parent="."]
+transform = Transform( -1.0339e-09, -1.92556e-08, 0.05, -0.0440516, 0.236529, 0, -0.0236529, -0.440516, -2.18557e-09, 0.603, 0.207, -0.338 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="Sword2" type="MeshInstance" parent="."]
+transform = Transform( -1.0339e-09, -1.92556e-08, 0.05, -0.0440516, 0.236529, 0, -0.0236529, -0.440516, -2.18557e-09, -0.603, 0.207, -0.388 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="RayCast" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, -6, 0 )
+
+[node name="StandStopper" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StandStopper"]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.75, 0 )
+shape = SubResource( 6 )

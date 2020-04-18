@@ -1,0 +1,109 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
+[ext_resource path="res://res/label_HP_bg.png" type="Texture" id=2]
+[ext_resource path="res://GUI/LifeBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GUI/GoldCounter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GUI/SwordItem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GUI/GliderItem.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GUI/FamiliarBellItem.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://res/Comfortaa-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = SubResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.607849
+margin_top = 0.668792
+margin_right = -0.607849
+margin_bottom = 0.668823
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GUI" type="MarginContainer" parent="."]
+anchor_right = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 130.0
+
+[node name="Rows" type="VBoxContainer" parent="GUI/HBoxContainer"]
+margin_right = 984.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/HBoxContainer/Rows"]
+margin_right = 984.0
+margin_bottom = 53.0
+
+[node name="LifeBar" parent="GUI/HBoxContainer/Rows/HBoxContainer" instance=ExtResource( 3 )]
+margin_right = 870.0
+size_flags_horizontal = 3
+
+[node name="RoundNum" type="MarginContainer" parent="GUI/HBoxContainer/Rows/HBoxContainer"]
+margin_left = 874.0
+margin_right = 984.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 110, 53 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="NinePatchRect" parent="GUI/HBoxContainer/Rows/HBoxContainer/RoundNum"]
+margin_right = 110.0
+margin_bottom = 53.0
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="GUI/HBoxContainer/Rows/HBoxContainer/RoundNum/Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -23.0
+margin_right = 40.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Items" type="HBoxContainer" parent="GUI/HBoxContainer/Rows"]
+margin_top = 57.0
+margin_right = 984.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 0, 53 )
+
+[node name="GoldCounter" parent="GUI/HBoxContainer/Rows/Items" instance=ExtResource( 4 )]
+margin_right = 120.0
+
+[node name="SwordItem" parent="GUI/HBoxContainer/Rows/Items" instance=ExtResource( 5 )]
+visible = false
+margin_left = 124.0
+margin_right = 177.0
+
+[node name="GliderItem" parent="GUI/HBoxContainer/Rows/Items" instance=ExtResource( 6 )]
+visible = false
+margin_left = 104.0
+margin_right = 157.0
+
+[node name="FamiliarBellItem" parent="GUI/HBoxContainer/Rows/Items" instance=ExtResource( 7 )]
+visible = false
+margin_left = 124.0
+margin_right = 177.0

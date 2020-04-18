@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Thrill Seeker - A RWBY Orchestration.ogg-6ebdf85b8390493252cbe0eff6d96099.oggstr"
+
+[deps]
+
+source_file="res://res/Thrill Seeker - A RWBY Orchestration.ogg"
+dest_files=[ "res://.import/Thrill Seeker - A RWBY Orchestration.ogg-6ebdf85b8390493252cbe0eff6d96099.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

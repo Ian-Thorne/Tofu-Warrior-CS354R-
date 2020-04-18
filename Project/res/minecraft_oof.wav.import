@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/minecraft_oof.wav-b621209ed135d5e4db815ba2846dbec3.sample"
+
+[deps]
+
+source_file="res://res/minecraft_oof.wav"
+dest_files=[ "res://.import/minecraft_oof.wav-b621209ed135d5e4db815ba2846dbec3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://res/Dream_Soothe_Bell_Sprite.png" type="Texture" id=1]
+[ext_resource path="res://GUI/Item.tscn" type="PackedScene" id=2]
+
+[node name="FamiliarBellItem" instance=ExtResource( 2 )]
+
+[node name="Icon" parent="Background" index="0"]
+margin_left = -18.0
+margin_top = -23.661
+margin_right = 18.0
+margin_bottom = 22.339
+texture = ExtResource( 1 )

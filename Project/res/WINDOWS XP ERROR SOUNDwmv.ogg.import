@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/WINDOWS XP ERROR SOUNDwmv.ogg-ede3ec0512812859a3f2561185555b60.oggstr"
+
+[deps]
+
+source_file="res://res/WINDOWS XP ERROR SOUNDwmv.ogg"
+dest_files=[ "res://.import/WINDOWS XP ERROR SOUNDwmv.ogg-ede3ec0512812859a3f2561185555b60.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

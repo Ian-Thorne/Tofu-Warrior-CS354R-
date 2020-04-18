@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://res/cup-2015198_1280.png" type="Texture" id=1]
+[ext_resource path="res://res/Comfortaa-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://bin/WinScreen.gdns" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_top = 1.37027
+margin_right = 1026.0
+margin_bottom = 598.37
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 370.057
+margin_top = 146.157
+margin_right = 642.057
+margin_bottom = 214.157
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You Win!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 415.646
+margin_top = 424.811
+margin_right = 595.646
+margin_bottom = 510.811
+text = "Main Menu"

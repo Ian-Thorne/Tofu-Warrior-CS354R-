@@ -1,0 +1,419 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://bin/SubShop.gdns" type="Script" id=1]
+[ext_resource path="res://res/aaf71e34139fced407b8b990f8064a0b.png" type="Texture" id=2]
+[ext_resource path="res://GUI/GoldCounter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://bin/ShopTimer.gdns" type="Script" id=4]
+[ext_resource path="res://res/label_HP_bg.png" type="Texture" id=5]
+[ext_resource path="res://res/Comfortaa-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://bin/ShopItem.gdns" type="Script" id=7]
+[ext_resource path="res://res/supreme-box-logo-t-shirt-white-1-600x600.png" type="Texture" id=8]
+[ext_resource path="res://res/base_armor.png" type="Texture" id=9]
+[ext_resource path="res://res/better_armor.png" type="Texture" id=10]
+[ext_resource path="res://res/best_armor.png" type="Texture" id=11]
+[ext_resource path="res://res/armor_of_thorn.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://res/Comfortaa-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://res/Comfortaa-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
+font_data = ExtResource( 6 )
+
+[node name="Shop" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0800778
+margin_top = -3.29333
+margin_right = 0.0800781
+margin_bottom = -3.29333
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+type = 1
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 1024.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Shop" type="Label" parent="."]
+margin_left = 326.759
+margin_top = 33.6511
+margin_right = 693.759
+margin_bottom = 90.6511
+custom_fonts/font = SubResource( 2 )
+text = "Armor Shop"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldCounter" parent="." instance=ExtResource( 3 )]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 125.0
+margin_bottom = 58.0
+
+[node name="Timer" type="MarginContainer" parent="."]
+margin_left = 930.0
+margin_top = 5.0
+margin_right = 1020.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 90, 53 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="NinePatchRect" parent="Timer"]
+margin_right = 90.0
+margin_bottom = 53.0
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Timer/Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -23.0
+margin_right = 40.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Timer/Background/Label"]
+
+[node name="MainShopContainer" type="MarginContainer" parent="."]
+margin_left = 25.0
+margin_top = 530.0
+margin_right = 270.0
+margin_bottom = 575.0
+rect_min_size = Vector2( 245, 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="MainShopContainer"]
+margin_right = 245.0
+margin_bottom = 45.0
+color = Color( 0.717647, 0.027451, 0.239216, 1 )
+
+[node name="Label" type="Label" parent="MainShopContainer"]
+margin_top = 9.0
+margin_right = 245.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 5 )
+text = "Back to Main Shop"
+align = 1
+valign = 1
+
+[node name="MainShop" type="TextureButton" parent="MainShopContainer"]
+margin_right = 245.0
+margin_bottom = 45.0
+
+[node name="Lines" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="To Better Armor" type="Line2D" parent="Lines"]
+position = Vector2( -1.75104, -0.0617981 )
+points = PoolVector2Array( 117.233, 356.03, 173.836, 356.03, 173.836, 233.41, 400, 233.41 )
+default_color = Color( 0.917647, 0.270588, 0.482353, 1 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="To Best Armor" type="Line2D" parent="Lines"]
+position = Vector2( 252.391, -127.747 )
+points = PoolVector2Array( 200, 356.03, 596.178, 356.491 )
+default_color = Color( 0.917647, 0.270588, 0.482353, 1 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="To Armor of Thorns" type="Line2D" parent="Lines"]
+position = Vector2( 259.757, -103.192 )
+points = PoolVector2Array( 200, 356.03, 300, 356.03, 300, 550, 360, 550 )
+default_color = Color( 0.917647, 0.270588, 0.482353, 1 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Items" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cheating" type="Control" parent="Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 350.0
+margin_top = 400.0
+margin_right = 350.0
+margin_bottom = 400.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+maxHP = 100.0
+darkImagePath = "res://res/supreme-box-logo-t-shirt-white-1-600x600_dark.png"
+lightImagePath = "res://res/supreme-box-logo-t-shirt-white-1-600x600.png"
+
+[node name="ItemBG" type="ColorRect" parent="Items/Cheating"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.619608, 0.180392, 0.180392, 1 )
+
+[node name="ItemButton" type="TextureButton" parent="Items/Cheating/ItemBG"]
+margin_left = 17.5
+margin_top = 5.0
+margin_right = 87.5
+margin_bottom = 75.0
+rect_min_size = Vector2( 70, 70 )
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="DescBG" type="ColorRect" parent="Items/Cheating"]
+margin_top = 80.0
+margin_right = 105.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 80, 65 )
+color = Color( 0.258824, 0.219608, 0.219608, 1 )
+
+[node name="Desc" type="RichTextLabel" parent="Items/Cheating/DescBG"]
+margin_left = 1.0
+margin_top = 3.21606
+margin_right = 104.0
+margin_bottom = 63.2161
+rect_min_size = Vector2( 100, 65 )
+text = "Cheating
+Cost: 0
+Max Health + 100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Base Armor" type="Control" parent="Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.2632
+margin_top = 319.0
+margin_right = -7.7368
+margin_bottom = 279.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+maxHP = 5.0
+cost = 40
+darkImagePath = "res://res/base_armor_dark.png"
+lightImagePath = "res://res/base_armor.png"
+
+[node name="ItemBG" type="ColorRect" parent="Items/Base Armor"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.619608, 0.180392, 0.180392, 1 )
+
+[node name="ItemButton" type="TextureButton" parent="Items/Base Armor/ItemBG"]
+margin_left = -32.0
+margin_top = -30.0
+margin_right = 178.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 80, 80 )
+texture_normal = ExtResource( 9 )
+expand = true
+
+[node name="DescBG" type="ColorRect" parent="Items/Base Armor"]
+margin_top = 80.0
+margin_right = 105.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 80, 56 )
+color = Color( 0.258824, 0.219608, 0.219608, 1 )
+
+[node name="Desc" type="RichTextLabel" parent="Items/Base Armor/DescBG"]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 63.0
+text = "Base Armor
+Cost: 40
+Max Health + 5"
+
+[node name="Better Armor" type="Control" parent="Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 384.682
+margin_top = 183.791
+margin_right = 344.682
+margin_bottom = 143.791
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+maxHP = 5.0
+cost = 70
+requirements = [ "/root/Shop/Items/Base Armor" ]
+darkImagePath = "res://res/better_armor_dark.png"
+lightImagePath = "res://res/better_armor.png"
+
+[node name="ItemBG" type="ColorRect" parent="Items/Better Armor"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.619608, 0.180392, 0.180392, 1 )
+
+[node name="ItemButton" type="TextureButton" parent="Items/Better Armor/ItemBG"]
+margin_left = -32.0
+margin_top = -30.0
+margin_right = 178.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 210, 130 )
+texture_normal = ExtResource( 10 )
+expand = true
+
+[node name="DescBG" type="ColorRect" parent="Items/Better Armor"]
+margin_top = 80.0
+margin_right = 105.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 80, 56 )
+color = Color( 0.258824, 0.219608, 0.219608, 1 )
+
+[node name="Desc" type="RichTextLabel" parent="Items/Better Armor/DescBG"]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 50.0
+text = "Better Armor
+Cost: 70
+Max Health + 5"
+
+[node name="Best Armor" type="Control" parent="Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 609.515
+margin_top = 401.708
+margin_right = 569.515
+margin_bottom = 361.708
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+maxHP = 10.0
+cost = 150
+finalItem = true
+requirements = [ "/root/Shop/Items/Better Armor" ]
+darkImagePath = "res://res/best_armor_dark.png"
+lightImagePath = "res://res/best_armor.png"
+
+[node name="ItemBG" type="ColorRect" parent="Items/Best Armor"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.619608, 0.180392, 0.180392, 1 )
+
+[node name="ItemButton" type="TextureButton" parent="Items/Best Armor/ItemBG"]
+margin_left = -32.0
+margin_top = -30.0
+margin_right = 178.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 210, 130 )
+texture_normal = ExtResource( 11 )
+expand = true
+
+[node name="DescBG" type="ColorRect" parent="Items/Best Armor"]
+margin_top = 80.0
+margin_right = 105.0
+margin_bottom = 156.0
+rect_min_size = Vector2( 80, 56 )
+color = Color( 0.258824, 0.219608, 0.219608, 1 )
+
+[node name="Desc" type="RichTextLabel" parent="Items/Best Armor/DescBG"]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 82.0
+text = "(Final)
+Best Armor
+Cost: 150
+Max Health + 10"
+
+[node name="Armor of Thorns" type="Control" parent="Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 809.316
+margin_top = 171.316
+margin_right = 769.316
+margin_bottom = 131.316
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+maxHP = 20.0
+cost = 300
+finalItem = true
+requirements = [ "/root/Shop/Items/Better Armor" ]
+darkImagePath = "res://res/armor_of_thorn_dark.png"
+lightImagePath = "res://res/armor_of_thorn.png"
+
+[node name="ItemBG" type="ColorRect" parent="Items/Armor of Thorns"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.619608, 0.180392, 0.180392, 1 )
+
+[node name="ItemButton" type="TextureButton" parent="Items/Armor of Thorns/ItemBG"]
+margin_left = -32.0
+margin_top = -30.0
+margin_right = 178.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 210, 130 )
+texture_normal = ExtResource( 12 )
+expand = true
+
+[node name="DescBG" type="ColorRect" parent="Items/Armor of Thorns"]
+margin_top = 80.0
+margin_right = 105.0
+margin_bottom = 154.0
+rect_min_size = Vector2( 80, 56 )
+color = Color( 0.258824, 0.219608, 0.219608, 1 )
+
+[node name="Desc" type="RichTextLabel" parent="Items/Armor of Thorns/DescBG"]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 81.0
+text = "(Final)
+Armor of Thorns
+Cost: 300
+Max Health + 20"

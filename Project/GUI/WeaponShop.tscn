@@ -1,0 +1,667 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://bin/SubShop.gdns" type="Script" id=1]
+[ext_resource path="res://res/aaf71e34139fced407b8b990f8064a0b.png" type="Texture" id=2]
+[ext_resource path="res://GUI/GoldCounter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://bin/ShopTimer.gdns" type="Script" id=4]
+[ext_resource path="res://res/label_HP_bg.png" type="Texture" id=5]
+[ext_resource path="res://res/Comfortaa-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://bin/ShopItem.gdns" type="Script" id=7]
+[ext_resource path="res://res/iron_sword.png" type="Texture" id=8]
+[ext_resource path="res://res/range_sword.png" type="Texture" id=9]
+[ext_resource path="res://res/sharp_sword.png" type="Texture" id=10]
+[ext_resource path="res://res/speed_sword.png" type="Texture" id=11]
+[ext_resource path="res://res/sharp_sword_2.png" type="Texture" id=12]
+[ext_resource path="res://res/2h_sword.png" type="Texture" id=13]
+[ext_resource path="res://res/spear.png" type="Texture" id=14]
+[ext_resource path="res://res/rapier.png" type="Texture" id=15]
+[ext_resource path="res://res/scim_sword.png" type="Texture" id=16]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://res/Comfortaa-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://res/Comfortaa-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
+font_data = ExtResource( 6 )
+
+[node name="Shop" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.18811
+margin_top = -3.29333
+margin_right = 1.18811
+margin_bottom = -3.29333
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 1024.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Shop" type="Label" parent="."]
+margin_left = 326.759
+margin_top = 33.6511
+margin_right = 693.759
+margin_bottom = 90.6511
+custom_fonts/font = SubResource( 2 )
+text = "Weapon Shop"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldCounter" parent="." instance=ExtResource( 3 )]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 125.0
+margin_bottom = 58.0
+
+[node name="Timer" type="MarginContainer" parent="."]
+margin_left = 930.0
+margin_top = 2.0
+margin_right = 1020.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 90, 53 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="NinePatchRect" parent="Timer"]
+margin_right = 90.0
+margin_bottom = 53.0
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Timer/Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -23.0
+margin_right = 40.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Timer/Background/Label"]
+
+[node name="MainShopContainer" type="MarginContainer" parent="."]
+margin_left = 25.0
+margin_top = 530.0
+margin_right = 270.0
+margin_bottom = 575.0
+rect_min_size = Vector2( 245, 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="MainShopContainer"]
+margin_right = 245.0
+margin_bottom = 45.0
+color = Color( 0.717647, 0.027451, 0.239216, 1 )
+
+[node name="Label" type="Label" parent="MainShopContainer"]
+margin_top = 9.0
+margin_right = 245.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 5 )
+text = "Back to Main Shop"
+align = 1
+valign = 1
+
+[node name="MainShop" type="TextureButton" parent="MainShopContainer"]
+margin_right = 245.0
+margin_bottom = 45.0
+
+[node name="To Speed Inc" type="Line2D" parent="."]
+position = Vector2( -1.05261, 24.2105 )
+points = PoolVector2Array( 118.285, 349.714, 180.391, 349.714, 180.391, 453.925, 347.759, 453.925, 347.759, 566.557, 587.879, 566.557, 587.879, 449.714, 642.496, 449.714 )
+default_color = Color( 0.917647, 0.270588, 0.482353, 1 )
+texture_mode = 3
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="To Sharp Inc" type="Line2D" parent="."]
+points = PoolVector2Array( 82.496, 334.978, 82.496, 291.609, 179.598, 291.609, 179.598, 170.158, 265.654, 170.158 )
+default_color = Color( 0.917647, 0.270588, 0.482353, 1 )
+texture_mode = 3080292
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="To Range Inc" type="Line2D" parent="."]
+points = PoolVector2Array( 138.286, 338.135, 224.601, 338.135 )
+default_color = Color( 0.917647, 0.270588, 0.482353, 1 )
+texture_mode = 13
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="To Icing Death" type="Line2D" parent="."]
+position = Vector2( 584.211, 122.105 )
+points = PoolVector2Array( 138.286, 338.135, 195.128, 338.135, 195.128, 242.346, 278.285, 242.346 )
+default_color = Color( 0.917647, 0.270588, 0.482353, 1 )
+texture_mode = 4
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="To Lambient Light Pt 1" type="Line2D" parent="."]
+position = Vector2( 187.368, 5.26318 )
+points = PoolVector2Array( 138.286, 338.135, 365.132, 338.135, 365.132, 432.872, 482.496, 432.872 )
+default_color = Color( 0.917647, 0.270588, 0.482353, 1 )
+texture_mode = 13
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="To Lambient Light Pt 2" type="Line2D" parent="."]
+position = Vector2( 416.842, 40 )
+points = PoolVector2Array( 138.286, 338.135, 188.88, 338.135, 188.88, 188.662, 241.443, 188.662 )
+default_color = Color( 0.917647, 0.270588, 0.482353, 1 )
+texture_mode = 3
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="To Gungnir" type="Line2D" parent="."]
+position = Vector2( 186.316, 28.4737 )
+points = PoolVector2Array( 138.286, 338.135, 179.575, 338.135, 179.575, 415.692, 256.18, 415.692 )
+default_color = Color( 0.917647, 0.270588, 0.482353, 1 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="To Zweihänder Pt 1" type="Line2D" parent="."]
+position = Vector2( 181.053, -30.5263 )
+points = PoolVector2Array( 133.022, 354.978, 222.496, 354.978, 222.496, 172.24, 149.864, 172.24 )
+default_color = Color( 0.917647, 0.270588, 0.482353, 1 )
+texture_mode = 104221712
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="To Zweihänder Pt 2" type="Line2D" parent="."]
+position = Vector2( 265.263, -156.842 )
+points = PoolVector2Array( 138.286, 338.135, 224.601, 338.135 )
+default_color = Color( 0.917647, 0.270588, 0.482353, 1 )
+texture_mode = 416915536
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="To Excalibur" type="Line2D" parent="."]
+position = Vector2( 10.5263, -228.421 )
+points = PoolVector2Array( 117.233, 356.03, 251.97, 356.03 )
+default_color = Color( 0.917647, 0.270588, 0.482353, 1 )
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Items" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Base Sword" type="Control" parent="Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.2632
+margin_top = 319.0
+margin_right = -7.7368
+margin_bottom = 279.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+darkImagePath = "res://res/iron_sword_dark.png"
+lightImagePath = "res://res/iron_sword.png"
+
+[node name="ItemBG" type="ColorRect" parent="Items/Base Sword"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.619608, 0.180392, 0.180392, 1 )
+
+[node name="ItemButton" type="TextureButton" parent="Items/Base Sword/ItemBG"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="DescBG" type="ColorRect" parent="Items/Base Sword"]
+margin_top = 80.0
+margin_right = 105.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.258824, 0.219608, 0.219608, 1 )
+
+[node name="Desc" type="RichTextLabel" parent="Items/Base Sword/DescBG"]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 79.0
+text = "Base Sword
+Attack: 1
+Range: 1
+Speed: 1"
+
+[node name="Inc Range" type="Control" parent="Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 224.0
+margin_top = 296.0
+margin_right = 184.0
+margin_bottom = 256.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+range = 1.0
+cost = 15
+requirements = [ "/root/Shop/Items/Base Sword" ]
+darkImagePath = "res://res/range_sword_dark.png"
+lightImagePath = "res://res/range_sword.png"
+
+[node name="ItemBG" type="ColorRect" parent="Items/Inc Range"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.619608, 0.180392, 0.180392, 1 )
+
+[node name="ItemButton" type="TextureButton" parent="Items/Inc Range/ItemBG"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture_normal = ExtResource( 9 )
+expand = true
+
+[node name="DescBG" type="ColorRect" parent="Items/Inc Range"]
+margin_top = 80.0
+margin_right = 105.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 80, 56 )
+color = Color( 0.258824, 0.219608, 0.219608, 1 )
+
+[node name="Desc" type="RichTextLabel" parent="Items/Inc Range/DescBG"]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 50.0
+text = "Inc. Range
+Cost: 15
+Range +1"
+
+[node name="Inc Sharpness" type="Control" parent="Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 246.105
+margin_top = 103.368
+margin_right = 206.105
+margin_bottom = 63.368
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+attackDamage = 1.0
+cost = 20
+requirements = [ "/root/Shop/Items/Base Sword" ]
+darkImagePath = "res://res/sharp_sword_dark.png"
+lightImagePath = "res://res/sharp_sword.png"
+
+[node name="ItemBG" type="ColorRect" parent="Items/Inc Sharpness"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.619608, 0.180392, 0.180392, 1 )
+
+[node name="ItemButton" type="TextureButton" parent="Items/Inc Sharpness/ItemBG"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture_normal = ExtResource( 10 )
+expand = true
+
+[node name="DescBG" type="ColorRect" parent="Items/Inc Sharpness"]
+margin_top = 80.0
+margin_right = 105.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 80, 56 )
+color = Color( 0.258824, 0.219608, 0.219608, 1 )
+
+[node name="Desc" type="RichTextLabel" parent="Items/Inc Sharpness/DescBG"]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 50.0
+text = "Inc. Sharpness
+Cost: 20
+Attack + 1"
+
+[node name="Inc Speed" type="Control" parent="Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 630.316
+margin_top = 422.316
+margin_right = 590.316
+margin_bottom = 382.316
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+attackSpeed = 1.0
+cost = 18
+requirements = [ "/root/Shop/Items/Base Sword" ]
+darkImagePath = "res://res/speed_sword_dark.png"
+lightImagePath = "res://res/speed_sword.png"
+
+[node name="ItemBG" type="ColorRect" parent="Items/Inc Speed"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.619608, 0.180392, 0.180392, 1 )
+
+[node name="ItemButton" type="TextureButton" parent="Items/Inc Speed/ItemBG"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture_normal = ExtResource( 11 )
+expand = true
+
+[node name="DescBG" type="ColorRect" parent="Items/Inc Speed"]
+margin_top = 80.0
+margin_right = 105.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 80, 56 )
+color = Color( 0.258824, 0.219608, 0.219608, 1 )
+
+[node name="Desc" type="RichTextLabel" parent="Items/Inc Speed/DescBG"]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 50.0
+text = "Inc. Speed
+Cost: 18
+Speed + 1"
+
+[node name="Excalibur" type="Control" parent="Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 42.0
+margin_top = 95.0
+margin_right = 2.0
+margin_bottom = 55.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+attackDamage = 4.0
+cost = 250
+finalItem = true
+requirements = [ "/root/Shop/Items/Inc Sharpness" ]
+darkImagePath = "res://res/sharp_sword_2_dark.png"
+lightImagePath = "res://res/sharp_sword_2.png"
+
+[node name="ItemBG" type="ColorRect" parent="Items/Excalibur"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.619608, 0.180392, 0.180392, 1 )
+
+[node name="ItemButton" type="TextureButton" parent="Items/Excalibur/ItemBG"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture_normal = ExtResource( 12 )
+expand = true
+
+[node name="DescBG" type="ColorRect" parent="Items/Excalibur"]
+margin_top = 80.0
+margin_right = 105.0
+margin_bottom = 148.0
+rect_min_size = Vector2( 80, 56 )
+color = Color( 0.258824, 0.219608, 0.219608, 1 )
+
+[node name="Desc" type="RichTextLabel" parent="Items/Excalibur/DescBG"]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 64.0
+text = "(Final)
+Excalibur
+Cost: 250
+Attack + 4"
+
+[node name="Zweihänder" type="Control" parent="Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 445.158
+margin_top = 129.737
+margin_right = 405.158
+margin_bottom = 89.737
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+attackDamage = 2.0
+range = 2.0
+cost = 200
+finalItem = true
+requirements = [ "/root/Shop/Items/Inc Sharpness", "/root/Shop/Items/Inc Range" ]
+darkImagePath = "res://res/2h_sword_dark.png"
+lightImagePath = "res://res/2h_sword.png"
+
+[node name="ItemBG" type="ColorRect" parent="Items/Zweihänder"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.619608, 0.180392, 0.180392, 1 )
+
+[node name="ItemButton" type="TextureButton" parent="Items/Zweihänder/ItemBG"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture_normal = ExtResource( 13 )
+expand = true
+
+[node name="DescBG" type="ColorRect" parent="Items/Zweihänder"]
+margin_top = 80.0
+margin_right = 105.0
+margin_bottom = 162.0
+rect_min_size = Vector2( 80, 56 )
+color = Color( 0.258824, 0.219608, 0.219608, 1 )
+
+[node name="Desc" type="RichTextLabel" parent="Items/Zweihänder/DescBG"]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 83.0
+text = "(Final)
+Zweihänder
+Cost: 200
+Attack + 2
+Range + 2"
+
+[node name="Gungnir" type="Control" parent="Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 434.579
+margin_top = 386.0
+margin_right = 394.579
+margin_bottom = 346.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+range = 3.0
+cost = 90
+finalItem = true
+requirements = [ "/root/Shop/Items/Inc Range" ]
+darkImagePath = "res://res/spear_dark.png"
+lightImagePath = "res://res/spear.png"
+
+[node name="ItemBG" type="ColorRect" parent="Items/Gungnir"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.619608, 0.180392, 0.180392, 1 )
+
+[node name="ItemButton" type="TextureButton" parent="Items/Gungnir/ItemBG"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture_normal = ExtResource( 14 )
+expand = true
+
+[node name="DescBG" type="ColorRect" parent="Items/Gungnir"]
+margin_top = 80.0
+margin_right = 105.0
+margin_bottom = 162.0
+rect_min_size = Vector2( 80, 56 )
+color = Color( 0.258824, 0.219608, 0.219608, 1 )
+
+[node name="Desc" type="RichTextLabel" parent="Items/Gungnir/DescBG"]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 83.0
+custom_constants/line_separation = 4
+text = "(Final)
+Gungnir
+Cost: 90
+Range + 3"
+
+[node name="Lambent Light" type="Control" parent="Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 656.684
+margin_top = 173.368
+margin_right = 616.684
+margin_bottom = 133.368
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+range = 1.0
+attackSpeed = 2.0
+cost = 280
+finalItem = true
+requirements = [ "/root/Shop/Items/Inc Speed", "/root/Shop/Items/Inc Range" ]
+darkImagePath = "res://res/rapier_dark.png"
+lightImagePath = "res://res/rapier.png"
+
+[node name="ItemBG" type="ColorRect" parent="Items/Lambent Light"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.619608, 0.180392, 0.180392, 1 )
+
+[node name="ItemButton" type="TextureButton" parent="Items/Lambent Light/ItemBG"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture_normal = ExtResource( 15 )
+expand = true
+
+[node name="DescBG" type="ColorRect" parent="Items/Lambent Light"]
+margin_top = 80.0
+margin_right = 105.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 80, 56 )
+color = Color( 0.258824, 0.219608, 0.219608, 1 )
+
+[node name="Desc" type="RichTextLabel" parent="Items/Lambent Light/DescBG"]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 96.0
+custom_constants/line_separation = 4
+text = "(Final)
+Lambient Light
+Cost: 280
+Range + 1
+Speed + 2"
+
+[node name="Icing Death" type="Control" parent="Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 852.474
+margin_top = 314.421
+margin_right = 812.474
+margin_bottom = 274.421
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+attackSpeed = 4.0
+cost = 400
+finalItem = true
+requirements = [ "/root/Shop/Items/Inc Speed" ]
+darkImagePath = "res://res/scim_sword_dark.png"
+lightImagePath = "res://res/scim_sword.png"
+
+[node name="ItemBG" type="ColorRect" parent="Items/Icing Death"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+color = Color( 0.619608, 0.180392, 0.180392, 1 )
+
+[node name="ItemButton" type="TextureButton" parent="Items/Icing Death/ItemBG"]
+margin_right = 105.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture_normal = ExtResource( 16 )
+expand = true
+
+[node name="DescBG" type="ColorRect" parent="Items/Icing Death"]
+margin_top = 80.0
+margin_right = 105.0
+margin_bottom = 152.0
+rect_min_size = Vector2( 80, 56 )
+color = Color( 0.258824, 0.219608, 0.219608, 1 )
+
+[node name="Desc" type="RichTextLabel" parent="Items/Icing Death/DescBG"]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 104.0
+margin_bottom = 74.0
+custom_constants/line_separation = 4
+text = "(Final)
+Icing Death
+Cost: 400
+Speed + 4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
