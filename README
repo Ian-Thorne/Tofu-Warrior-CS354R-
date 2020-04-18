@@ -13,10 +13,12 @@ Instructions on how to use our game's executable:
 		- If the executable is not in the same directory as "roundInfo.txt" single player mode won't work!
 
 Instructions on how to build our game:
-	- Navigate to the "finalproject-final-panda" folder
+	- You will need the SCons build system installed on your machine
+		- SCons can be downloaded here: https://scons.org/pages/download.html
+	- Navigate to the "Source" folder
 	- (Optional) If the Godot bindings haven't been generated for your system:
 		- Navigate to the "godot-cpp" folder
-		- Run scons "platform=[your platform] generate_bindings=yes"
+		- Run scons "platform=[your platform] generate_bindings=yes" (osx for Mac, x11 for Linux)
 			- If your OS is Linux or Windows include the flag "bits=64"
 	- Run "scons platform=[your platform]" in the "finalproject-final-panda" folder
 		- This will compile our game
